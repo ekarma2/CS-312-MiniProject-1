@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Post</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Edit Post</h1>
+    <!--Get specific post off ID-->
+    <form action ="/posts/<%= post.id %>?_method=PUT" method="POST">
+        <!--Fill with post content-->
+        <label>Author:</label>
+        <input type="text" name="author" value="<%= post.author %>" required><br>
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= post.title %>" required><br>
+        <label>Body:</label>
+        <textarea name="body" required><%= post.body %></textarea><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

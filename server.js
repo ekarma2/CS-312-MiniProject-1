@@ -44,5 +44,24 @@ app.post('/posts', (req, res) =>
   res.redirect('/posts');
 }
 
+// add route to edit form
+app.get('/posts/:id/edit', (req, res) =>
+{
+  // search for post with matching id in array 
+  const post = posts.find(p => p.id === parseInt(req.params.id));
+  res.render('edit', {post});
+}
+// listen to post requests  
+app.post('/posts/:id', (req, res) =>
+{
+  // search for post with matching id in array 
+  const post = posts.find(p => p.id === parseInt(req.params.id));
+  // update post content 
+  post.author = req.body.author;
+  post.title = req.body.title;
+  post.body = req.body.body;
+  res.redirect('/posts');
+}
+
 // start server on port 3000
 app.listen(3000, () => console.log('Server running on port 3000'));
