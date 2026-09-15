@@ -19,16 +19,20 @@
                 <div class="card-body">
             <!--Post Content-->
             <h2><%= post.title %></h2>
+            <h6>Author: <%= post.author %></h6>
             <p><%= post.body %></p>
-            <p>Author: <%= post.author %></p>
+            
             <!--Display time of post-->
             <p>Created: <%= post.createdAt.toLocaleString() %></p>
+            <!--Buttons-->
+            <div class="container mt-4"> 
             <!--Edit button-->
-            <a href="/posts/<%= post.id %>/edit">Edit</a>
+            <a href="/posts/<%= post.id %>/edit"class="btn btn-md btn-outline-secondary">Edit</a>
             <!--Delete button-->
-            <form action="/posts/<%= post.id %>/delete" method="POST">
-                <button type="submit">Delete</button>
+            <form action="/posts/<%= post.id %>/delete" method="POST" class="d-inline">
+                <button type="submit"class="btn btn-md btn-outline-secondary">Delete</button>
             </form>
+        </div>
         </div>
         <% }) %>
     </div>
